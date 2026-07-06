@@ -99,6 +99,7 @@ export default function Inicio() {
     isLoading: loadingBeneficiariosPeriodo,
   } = useBeneficiarios(periodoActivo?.id_periodo);
 
+
   const {
     beneficiarios,
     loading: loadingBeneficiarios,
@@ -291,8 +292,12 @@ export default function Inicio() {
       const esActivo = b.estatus === "Activo";
       if (esActivo) acc.activos++;
 
-      const tieneDonador = b.id_donador || b.donador || b.tieneDonador;
-      if (esActivo && !tieneDonador) acc.sinDonador++;
+      const tieneDonador =
+        Array.isArray(b.donadores) && b.donadores.length > 0;
+
+      if (esActivo && !tieneDonador) {
+        acc.sinDonador++;
+      }
 
       if (b.fecha_ingreso) {
         const fechaIngreso = new Date(b.fecha_ingreso);

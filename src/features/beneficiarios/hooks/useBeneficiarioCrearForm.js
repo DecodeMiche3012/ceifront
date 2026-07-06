@@ -107,8 +107,6 @@ export const useBeneficiarioCrearForm = (onSuccess, onClose) => {
       if (!fam.apellido_p?.trim())
         errors[`familia.${idx}.apellido_p`] = "Apellido obligatorio";
 
-      if (!fam.apellido_m?.trim())
-        errors[`familia.${idx}.apellido_m`] = "Apellido obligatorio";
 
       if (!fam.parentesco?.trim())
         errors[`familia.${idx}.parentesco`] = "Parentesco obligatorio";

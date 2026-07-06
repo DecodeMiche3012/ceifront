@@ -138,7 +138,6 @@ export default function ModalEditarFamiliar({
                 </Field>
 
                 <Field
-                  required
                   label="Apellido Materno"
                   error={fieldErrors.apellido_m}
                 >
@@ -181,6 +180,10 @@ export default function ModalEditarFamiliar({
 
                     <option value="Abuelo/a">
                       Abuelo/a
+                    </option>
+
+                    <option value="Tio">
+                      Tio/tia
                     </option>
 
                     <option value="Tutor">
