@@ -215,7 +215,6 @@ export default function ModalEditarFamiliar({
                 </Field>
 
                 <Field
-                  required
                   label="Teléfono"
                   error={fieldErrors.telefono}
                 >

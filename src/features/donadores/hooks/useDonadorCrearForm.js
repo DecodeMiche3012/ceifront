@@ -73,12 +73,17 @@ export const useDonadorCrearForm = (onSuccess, onClose) => {
       errors.apellido_p = "El apellido paterno es obligatorio";
     }
 
-    if (!form.correo.trim()) {
-      errors.correo = "El correo es obligatorio";
+    // Teléfono (opcional)
+    if (form.telefono?.trim() && !/^\d{10}$/.test(form.telefono)) {
+      errors.telefono = "El teléfono debe tener 10 dígitos";
     }
 
-    if (!form.telefono.trim()) {
-      errors.telefono = "El teléfono es obligatorio";
+    // Correo (opcional)
+    if (
+      form.correo?.trim() &&
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.correo)
+    ) {
+      errors.correo = "Correo inválido";
     }
 
     if (!form.tipo.trim()) {

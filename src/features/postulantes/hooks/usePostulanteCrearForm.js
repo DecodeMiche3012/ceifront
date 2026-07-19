@@ -85,9 +85,19 @@ export const usePostulanteCrearForm = (onSuccess, onClose) => {
 
     if (!form.nombre.trim()) errors.nombre = "Nombre obligatorio";
     if (!form.apellido_p.trim()) errors.apellido_p = "Apellido obligatorio";
-    if (!form.correo.trim()) errors.correo = "Correo obligatorio";
-    if (!form.telefono.trim()) errors.telefono = "Teléfono obligatorio";
     if (!form.genero.trim()) errors.genero = "Selecciona género";
+    // Teléfono (opcional)
+    if (form.telefono?.trim() && !/^\d{10}$/.test(form.telefono)) {
+      errors.telefono = "El teléfono debe tener 10 dígitos";
+    }
+
+    // Correo (opcional)
+    if (
+      form.correo?.trim() &&
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.correo)
+    ) {
+      errors.correo = "Correo inválido";
+    }
     if (!form.fecha_nacimiento) {
       errors.fecha_nacimiento = "Selecciona fecha";
     } else {
@@ -125,9 +135,6 @@ export const usePostulanteCrearForm = (onSuccess, onClose) => {
 
       if (!fam.apellido_p?.trim())
         errors[`familia.${idx}.apellido_p`] = "Apellido obligatorio";
-
-      if (!fam.apellido_m?.trim())
-        errors[`familia.${idx}.apellido_m`] = "Apellido obligatorio";
 
       if (!fam.parentesco?.trim())
         errors[`familia.${idx}.parentesco`] = "Parentesco obligatorio";

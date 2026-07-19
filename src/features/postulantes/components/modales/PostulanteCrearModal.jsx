@@ -251,7 +251,7 @@ export default function PostulanteCrearModal({ open, onClose, onSuccess }) {
                         />
                       </Field>
 
-                      <Field label="Correo electrónico" required error={fieldErrors.correo}>
+                      <Field label="Correo electrónico" error={fieldErrors.correo}>
                         <InputG
 
                           type="email"
@@ -262,7 +262,7 @@ export default function PostulanteCrearModal({ open, onClose, onSuccess }) {
                         />
                       </Field>
 
-                      <Field label="Teléfono" required error={fieldErrors.telefono}>
+                      <Field label="Teléfono" error={fieldErrors.telefono}>
                         <InputG
 
                           placeholder="9511234567"
@@ -637,7 +637,7 @@ export default function PostulanteCrearModal({ open, onClose, onSuccess }) {
                           <div className="grid grid-cols-1 md:grid-cols-3 gap-x-4 gap-y-3">
                             <Field label="Nombre" required error={fieldErrors[`familia.${idx}.nombre`]}><InputG placeholder="Nombre" value={fam.nombre} error={!!fieldErrors[`familia.${idx}.nombre`]} onChange={(e) => updateFamiliar(idx, "nombre", e.target.value)} /></Field>
                             <Field label="Ap. Paterno" required error={fieldErrors[`familia.${idx}.apellido_p`]}><InputG placeholder="Apellido P." value={fam.apellido_p} error={!!fieldErrors[`familia.${idx}.apellido_p`]} onChange={(e) => updateFamiliar(idx, "apellido_p", e.target.value)} /></Field>
-                            <Field label="Ap. Materno" required error={fieldErrors[`familia.${idx}.apellido_m`]}><InputG placeholder="Apellido M." value={fam.apellido_m} error={!!fieldErrors[`familia.${idx}.apellido_m`]} onChange={(e) => updateFamiliar(idx, "apellido_m", e.target.value)} /></Field>
+                            <Field label="Ap. Materno" error={fieldErrors[`familia.${idx}.apellido_m`]}><InputG placeholder="Apellido M." value={fam.apellido_m} error={!!fieldErrors[`familia.${idx}.apellido_m`]} onChange={(e) => updateFamiliar(idx, "apellido_m", e.target.value)} /></Field>
                             <Field label="Parentesco" required error={fieldErrors[`familia.${idx}.parentesco`]}>
                               <Select value={fam.parentesco} error={!!fieldErrors[`familia.${idx}.parentesco`]} onChange={(e) => updateFamiliar(idx, "parentesco", e.target.value)}>
                                 <option value="">Elegir...</option>

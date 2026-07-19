@@ -14,7 +14,7 @@ export const useFamiliarForm = (
     apellido_p: "",
     apellido_m: "",
     parentesco: "",
-    fecha_nacimiento: "",
+    fecha_nacimiento: new Date().toISOString().split("T")[0],
     telefono: "",
     actividad_principal: "",
     area_laboral_escuela: "",
@@ -101,13 +101,7 @@ export const useFamiliarForm = (
       errors.parentesco = "Seleccione un parentesco";
     }
 
-    if (!formData.fecha_nacimiento) {
-      errors.fecha_nacimiento = "Seleccione una fecha";
-    }
-
-    if (!formData.telefono?.trim()) {
-      errors.telefono = "El teléfono es obligatorio";
-    } else if (formData.telefono.length !== 10) {
+    if (formData.telefono?.trim() && !/^\d{10}$/.test(formData.telefono)) {
       errors.telefono = "El teléfono debe tener 10 dígitos";
     }
 
@@ -191,56 +185,56 @@ export const useFamiliarForm = (
       });
 
     } catch (error) {
-  const backendData =
-    error?.errors ||
-    error?.response?.data?.errors ||
-    error?.response?.data;
+      const backendData =
+        error?.errors ||
+        error?.response?.data?.errors ||
+        error?.response?.data;
 
-  if (
-    backendData &&
-    typeof backendData === "object" &&
-    !Array.isArray(backendData)
-  ) {
-    const parsedErrors = {};
+      if (
+        backendData &&
+        typeof backendData === "object" &&
+        !Array.isArray(backendData)
+      ) {
+        const parsedErrors = {};
 
-    Object.entries(backendData).forEach(([key, value]) => {
-      parsedErrors[key] = Array.isArray(value)
-        ? value[0]
-        : value;
-    });
+        Object.entries(backendData).forEach(([key, value]) => {
+          parsedErrors[key] = Array.isArray(value)
+            ? value[0]
+            : value;
+        });
 
-    setFieldErrors(parsedErrors);
+        setFieldErrors(parsedErrors);
 
-    const labels = {
-      nombre: "Nombre",
-      apellido_p: "Apellido paterno",
-      parentesco: "Parentesco",
-      fecha_nacimiento: "Fecha de nacimiento",
-      telefono: "Teléfono",
-      actividad_principal: "Ocupación / Grado escolar",
-      salario: "Salario o escuela",
-      vive_en_casa: "Habita en el mismo domicilio",
-    };
+        const labels = {
+          nombre: "Nombre",
+          apellido_p: "Apellido paterno",
+          parentesco: "Parentesco",
+          fecha_nacimiento: "Fecha de nacimiento",
+          telefono: "Teléfono",
+          actividad_principal: "Ocupación / Grado escolar",
+          salario: "Salario o escuela",
+          vive_en_casa: "Habita en el mismo domicilio",
+        };
 
-    const campos = Object.keys(parsedErrors)
-      .map((key) => labels[key] || key)
-      .join(", ");
+        const campos = Object.keys(parsedErrors)
+          .map((key) => labels[key] || key)
+          .join(", ");
 
-    setGeneralError(
-      `Revisa los siguientes campos: ${campos}`
-    );
+        setGeneralError(
+          `Revisa los siguientes campos: ${campos}`
+        );
 
-    return;
-  }
+        return;
+      }
 
-  // Solo errores inesperados
-  setResultadoModal({
-    open: true,
-    type: "error",
-    title: "Error al guardar",
-    message: "No se pudo guardar el familiar.",
-  });
-}
+      // Solo errores inesperados
+      setResultadoModal({
+        open: true,
+        type: "error",
+        title: "Error al guardar",
+        message: "No se pudo guardar el familiar.",
+      });
+    }
   };
 
   return {
@@ -269,3 +263,4 @@ export const useFamiliarForm = (
     fieldRefs,
   };
 };
+

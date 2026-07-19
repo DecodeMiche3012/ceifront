@@ -207,12 +207,12 @@ export default function EditarDatosGenerales({ open, onClose, onSuccess, donador
                         disabled={!puedeEditarNombre} onChange={(e) => updateField("apellido_m", e.target.value)} error={!!fieldErrors.apellido_m} />
                     </Field>
 
-                    <Field label="Correo" required error={fieldErrors.correo}>
+                    <Field label="Correo" error={fieldErrors.correo}>
                       <Input value={form.correo}
                         onChange={(e) => updateField("correo", e.target.value)} error={!!fieldErrors.correo} />
                     </Field>
 
-                    <Field label="Teléfono" required error={fieldErrors.telefono}>
+                    <Field label="Teléfono" error={fieldErrors.telefono}>
                       <Input value={form.telefono}
                         onChange={(e) => updateField("telefono", e.target.value)} error={!!fieldErrors.telefono} />
                     </Field>

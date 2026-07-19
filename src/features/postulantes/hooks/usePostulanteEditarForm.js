@@ -84,11 +84,19 @@ export const usePostulanteEditarForm = (open, postulante, onSuccess, onClose) =>
     const errors = {};
     if (!form.nombre.trim()) errors.nombre = "Nombre obligatorio";
     if (!form.apellido_p.trim()) errors.apellido_p = "Apellido obligatorio";
-    if (!form.correo.trim()) errors.correo = "Correo obligatorio";
-    if (!form.telefono.trim()) errors.telefono = "Teléfono obligatorio";
     if (!form.genero.trim()) errors.genero = "Selecciona género";
     if (!form.fecha_nacimiento) errors.fecha_nacimiento = "Selecciona fecha";
-
+    // Teléfono (opcional)
+    if (form.telefono?.trim() && !/^\d{10}$/.test(form.telefono)) {
+      errors.telefono = "El teléfono debe tener 10 dígitos";
+    }
+    // Correo (opcional)
+    if (
+      form.correo?.trim() &&
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.correo)
+    ) {
+      errors.correo = "Correo inválido";
+    }
     if (!form.cp.trim()) errors.cp = "CP obligatorio";
     if (!form.municipio.trim()) errors.municipio = "Municipio obligatorio";
     if (!form.colonia.trim()) errors.colonia = "Colonia obligatoria";
@@ -217,12 +225,12 @@ export const usePostulanteEditarForm = (open, postulante, onSuccess, onClose) =>
 
           gastos: [
             {
-              id_gasto: form.gasto_alimentacion_id, 
+              id_gasto: form.gasto_alimentacion_id,
               nombre: "Alimentacion",
               monto: String(form.gasto_alimentacion || "0.00"),
             },
             {
-              id_gasto: form.gasto_transporte_id, 
+              id_gasto: form.gasto_transporte_id,
               nombre: "Transporte",
               monto: String(form.gasto_transporte || "0.00"),
             },
@@ -302,8 +310,8 @@ export const usePostulanteEditarForm = (open, postulante, onSuccess, onClose) =>
 
     }
     finally {
-    isSubmitting.current = false;
-  }
+      isSubmitting.current = false;
+    }
   };
 
   const handleFinalClose = () => {

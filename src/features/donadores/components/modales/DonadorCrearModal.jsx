@@ -258,7 +258,7 @@ export default function DonadorCrearModal({ open, onClose, onSuccess }) {
                       />
                     </Field>
 
-                    <Field label="Correo" required error={fieldErrors.correo}>
+                    <Field label="Correo" error={fieldErrors.correo}>
                       <Input
                         type="email"
                         value={form.correo}
@@ -267,7 +267,7 @@ export default function DonadorCrearModal({ open, onClose, onSuccess }) {
                       />
                     </Field>
 
-                    <Field label="Teléfono" required error={fieldErrors.telefono}>
+                    <Field label="Teléfono" error={fieldErrors.telefono}>
                       <Input
                         value={form.telefono}
                         onChange={(e) => updateField("telefono", e.target.value)}

@@ -69,15 +69,14 @@ export const useBeneficiarioEditarForm = (open, data, onSuccess, onClose) => {
     if (!form.nombre.trim()) errors.nombre = "Nombre obligatorio";
     if (!form.apellido_p.trim()) errors.apellido_p = "Apellido obligatorio";
 
-    if (!form.correo.trim()) {
-      errors.correo = "Correo obligatorio";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.correo)) {
+    if (
+      form.correo?.trim() &&
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.correo)
+    ) {
       errors.correo = "Correo inválido";
     }
 
-    if (!form.telefono.trim()) {
-      errors.telefono = "Teléfono obligatorio";
-    } else if (!/^\d{10}$/.test(form.telefono)) {
+    if (form.telefono?.trim() && !/^\d{10}$/.test(form.telefono)) {
       errors.telefono = "El teléfono debe tener 10 dígitos";
     }
 

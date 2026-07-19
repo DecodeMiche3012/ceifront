@@ -80,15 +80,13 @@ export const useEditarFamiliar = (
         "Seleccione una fecha";
     }
 
-    if (!editando.telefono?.trim()) {
-      errors.telefono =
-        "El teléfono es obligatorio";
-    } else if (
-      editando.telefono.length !== 10
-    ) {
-      errors.telefono =
-        "El teléfono debe tener 10 dígitos";
-    }
+    if (
+  editando.telefono?.trim() &&
+  !/^\d{10}$/.test(editando.telefono)
+) {
+  errors.telefono =
+    "El teléfono debe tener 10 dígitos";
+}
 
     if (!editando.actividad_principal?.trim()) {
       errors.actividad_principal =

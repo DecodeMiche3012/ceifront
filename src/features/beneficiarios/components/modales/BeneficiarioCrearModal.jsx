@@ -167,7 +167,7 @@ export default function BeneficiarioCrearModal({ open, onClose, onSuccess }) {
 
                 <div>
                   <h2 className={ui.modal.title}>
-                    Nuevo Ingreso
+                    Registrar Beneficiario
                   </h2>
 
                   <p className={ui.modal.description}>
@@ -249,7 +249,7 @@ export default function BeneficiarioCrearModal({ open, onClose, onSuccess }) {
                         />
                       </Field>
 
-                      <Field label="Correo electrónico" required error={fieldErrors.correo}>
+                      <Field label="Correo electrónico" error={fieldErrors.correo}>
                         <InputG
 
                           type="email"

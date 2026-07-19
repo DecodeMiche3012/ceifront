@@ -212,7 +212,7 @@ export default function ModalCrearFamiliar({
                     </Field>
 
                     <Field
-                      label="Teléfono (10 dígitos)" required
+                      label="Teléfono (10 dígitos)" 
                       error={fieldErrors.telefono}
                     >
                       <InputG

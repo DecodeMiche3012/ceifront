@@ -245,7 +245,7 @@ export default function PostulanteEditarModal({ open, postulante, onSuccess, onC
                         />
                       </Field>
 
-                      <Field label="Correo electrónico" required error={fieldErrors.correo}>
+                      <Field label="Correo electrónico" error={fieldErrors.correo}>
                         <InputG
                           type="email"
                           value={form.correo}
@@ -254,7 +254,7 @@ export default function PostulanteEditarModal({ open, postulante, onSuccess, onC
                         />
                       </Field>
 
-                      <Field label="Teléfono" required error={fieldErrors.telefono}>
+                      <Field label="Teléfono" error={fieldErrors.telefono}>
                         <InputG
                           value={form.telefono}
                           onChange={(e) => updateField("telefono", e.target.value)}

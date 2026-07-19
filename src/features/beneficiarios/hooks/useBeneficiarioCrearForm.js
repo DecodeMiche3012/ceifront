@@ -7,7 +7,7 @@ export const useBeneficiarioCrearForm = (onSuccess, onClose) => {
 
   const initialForm = {
     estatus: "Activo",
-    fecha_ingreso: "",
+    fecha_ingreso: new Date().toISOString().split("T")[0],
     notas: " ",
     nombre: "",
     apellido_p: "",
@@ -64,9 +64,7 @@ export const useBeneficiarioCrearForm = (onSuccess, onClose) => {
     // PRINCIPAL
     if (!form.nombre.trim()) errors.nombre = "Nombre obligatorio";
     if (!form.apellido_p.trim()) errors.apellido_p = "Apellido obligatorio";
-    if (!form.correo.trim()) {
-      errors.correo = "Correo obligatorio";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.correo)) {
+    if (form.correo.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.correo)) {
       errors.correo = "Correo inválido";
     }
 
