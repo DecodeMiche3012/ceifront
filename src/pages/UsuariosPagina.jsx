@@ -78,7 +78,7 @@ const usuarioActual = obtenerUsuario();
       <section className={ui.section}>
         <EncabezadoPagina
           titulo="Gestión de Usuarios"
-          descripcion="Administración de accesos y roles del personal."
+          descripcion="Administración de accesos y puestos del personal."
           accion={
             !isPermsLoading &&
             canCreate && (

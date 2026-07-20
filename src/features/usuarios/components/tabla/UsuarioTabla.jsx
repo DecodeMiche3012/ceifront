@@ -24,7 +24,7 @@ export default function UsuarioTabla({
     const baseColumns = [
       { key: "usuario", label: "Usuario" },
       { key: "correo", label: "Correo electrónico" },
-      { key: "rol", label: "Rol" },
+      { key: "rol", label: "Puesto" },
       { key: "telefono", label: "Teléfono" },
       { key: "estatus", label: "Estatus" },
     ];

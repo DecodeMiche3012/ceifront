@@ -169,7 +169,7 @@ export default function UsuarioModal({
               </Field>
 
               <Field
-                label="Rol"
+                label="Puesto"
                 required
                 error={fieldErrors.id_rol}
               >
@@ -180,7 +180,7 @@ export default function UsuarioModal({
                   error={!!fieldErrors.id_rol}
                 >
                   <option value="">
-                    Selecciona un rol
+                    Selecciona un puesto
                   </option>
 
                   {rolesDisponibles.map((rol) => (
