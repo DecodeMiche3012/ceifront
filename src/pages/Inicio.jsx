@@ -552,7 +552,7 @@ export default function Inicio() {
             )}
             {canViewBeneficiarios && (
               <CardInterno
-                title="Casos de Baja"
+                title="Beneficiarios Inactivos"
                 value={metrics.bajas}
                 icon={UserMinus}
                 type="warning"

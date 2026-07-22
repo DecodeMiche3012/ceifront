@@ -62,6 +62,11 @@ export default function ModalCrearFamiliar({
     "Abuelo/a",
     "Tío/a",
     "Tutor",
+    "Primo/a",
+    "Sobrino/a",
+    "Padrastro/Madrastra",
+    "Cónyuge",
+    "Hijo/a",
     "Otro",
   ];
 

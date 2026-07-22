@@ -647,6 +647,7 @@ export default function PostulanteCrearModal({ open, onClose, onSuccess }) {
                                 <option value="Abuelo(a)">Abuelo(a)</option>
                                 <option value="Tío(a)">Tío(a)</option>
                                 <option value="Primo(a)">Primo(a)</option>
+                                <option value="Sobrino(a)">Sobrino(a)</option>
                                 <option value="Padrastro/Madrastra">Padrastro/Madrastra</option>
                                 <option value="Cónyuge">Cónyuge</option>
                                 <option value="Hijo(a)">Hijo(a)</option>

@@ -162,37 +162,17 @@ export default function ModalEditarFamiliar({
                       fieldErrors.parentesco
                     )}
                   >
-                    <option value="">
-                      Elegir...
-                    </option>
-
-                    <option value="Madre">
-                      Madre
-                    </option>
-
-                    <option value="Padre">
-                      Padre
-                    </option>
-
-                    <option value="Hermano/a">
-                      Hermano/a
-                    </option>
-
-                    <option value="Abuelo/a">
-                      Abuelo/a
-                    </option>
-
-                    <option value="Tio">
-                      Tio/tia
-                    </option>
-
-                    <option value="Tutor">
-                      Tutor
-                    </option>
-
-                    <option value="Otro">
-                      Otro
-                    </option>
+                    <option value="">Elegir...</option>
+                    <option value="Padre">Padre</option>
+                    <option value="Madre">Madre</option>
+                    <option value="Hermano(a)">Hermano(a)</option>
+                    <option value="Abuelo(a)">Abuelo(a)</option>
+                    <option value="Tío(a)">Tío(a)</option>
+                    <option value="Primo(a)">Primo(a)</option>
+                    <option value="Sobrino(a)">Sobrino(a)</option>
+                    <option value="Padrastro/Madrastra">Padrastro/Madrastra</option>
+                    <option value="Cónyuge">Cónyuge</option>
+                    <option value="Hijo(a)">Hijo(a)</option>
                   </select>
                 </Field>
 

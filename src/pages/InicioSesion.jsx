@@ -131,7 +131,7 @@ export default function InicioSesion() {
   ), []);
 
   const mailtoLink = useMemo(() => {
-    const correoAdmin = "cei@gmail.com";
+    const correoAdmin = "asistentecj@esperanzainfantil.org";
     const asunto = encodeURIComponent("Solicitud de recuperación de contraseña");
     const textoMensaje = encodeURIComponent(
       "Hola.\n\nSolicito el restablecimiento de mi contraseña del sistema CEI.\n\nUsuario:\nCorreo registrado:\n\nEnviar esta solicitud desde el correo registrado en el sistema.\n\nGracias."
@@ -241,7 +241,7 @@ export default function InicioSesion() {
               </div>
               <div className="rounded-xl border border-[#0E5F63]/20 bg-[#0E5F63]/5 p-3">
                 <p className="text-sm font-semibold text-[#0E5F63]">Correo de soporte</p>
-                <p className="mt-1 break-all text-sm text-gray-700">cei@gmail.com</p>
+                <p className="mt-1 break-all text-sm text-gray-700">asistentecj@esperanzainfantil.org</p>
               </div>
             </div>
             <div className="mt-6 flex justify-end gap-3">
@@ -265,3 +265,5 @@ export default function InicioSesion() {
     </main>
   );
 }
+
+
